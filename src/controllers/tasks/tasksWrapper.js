@@ -1,4 +1,4 @@
-import handle from "../errorHandler/errorsHandler.js";
+import handle from "../errors/errorsHandler.js";
 import tasksController from "./tasksController.js";
 
 class TasksErrorsWrapper {

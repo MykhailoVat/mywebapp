@@ -1,21 +1,23 @@
+import tasksService from '../../repositories/tasks/tasksRepository.js';
+import tasksRepository from "../../repositories/tasks/tasksRepository.js";
+
 class TasksService {
-    constructor() {
+    constructor(repository) {
+        this.repository = repository;
 
     }
 
     getAll() {
-        return 0;
+        return this.repository.getAll();
     }
 
     create(data) {
-       return 0;
+       return this.repository.create(data);
     }
 
     markDone(id){
-        if (id === -1)
-            throw new Error("test");
-        return 0;
+        return this.repository.markDone(id);
     }
 }
 
-export default new TasksService();
+export default new TasksService(tasksRepository);
