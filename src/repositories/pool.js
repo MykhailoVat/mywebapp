@@ -1,4 +1,4 @@
-const { Pool } = require('pg');
+import { Pool } from 'pg';
 
 const pool = new Pool({
     host: process.env.DB_HOST,
@@ -9,3 +9,4 @@ const pool = new Pool({
 });
 
 export default pool
+
