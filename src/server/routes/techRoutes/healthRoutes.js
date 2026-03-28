@@ -6,7 +6,7 @@ const getHealthRouter = () => {
 
     //GET
     router.get('/alive', async (req, res) => {
-        res.status(200).send("200, app alive")
+        res.status(200).send("app alive")
     });
 
     router.get('/ready', async (req, res) => {

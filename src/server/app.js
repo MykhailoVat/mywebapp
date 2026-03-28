@@ -1,7 +1,7 @@
 import express from "express";
-import getUserRouter from "./routes/tasksRoutes.js";
-import getHealthRouter from "./routes/healthRoutes.js";
-import getBaseRouter from "./routes/baseRoutes.js";
+import getUserRouter from "./routes/appRoutes/tasksRoutes.js";
+import getHealthRouter from "./routes/techRoutes/healthRoutes.js";
+import getBaseRouter from "./routes/techRoutes/baseRoutes.js";
 
 const app = express();
 
