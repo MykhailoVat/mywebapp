@@ -7,16 +7,16 @@ class TasksService {
 
     }
 
-    getAll() {
-        return this.repository.getAll();
+    async getAll() {
+        return await this.repository.getAll();
     }
 
-    create(data) {
-       return this.repository.create(data);
+    async create(data) {
+       return await this.repository.create(data);
     }
 
-    markDone(id){
-        return this.repository.markDone(id);
+    async markDone(id){
+        return await this.repository.markDone(id);
     }
 }
 

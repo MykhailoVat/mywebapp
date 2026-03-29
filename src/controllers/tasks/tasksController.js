@@ -5,24 +5,24 @@ class TasksController {
         this.service = service;
     }
 
-    getAll() {
-        const data = this.service.getAll();
+    async getAll() {
+        const data = await this.service.getAll();
         return {
             status: 200,
             data: data
         };
     }
 
-    create(body) {
-        const task = this.service.create(body);
+    async create(data) {
+        const task = await this.service.create(data);
         return {
             status: 201,
             data: task
         };
     }
 
-    markDone(id) {
-        const task = this.service.markDone(id);
+    async markDone(id) {
+        const task = await this.service.markDone(id);
         return {
             status: 200,
             data: task

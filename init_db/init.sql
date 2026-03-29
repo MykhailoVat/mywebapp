@@ -3,6 +3,6 @@ CREATE TYPE statuses AS ENUM ('NEW','IN_PROGRESS','DONE');
 CREATE TABLE IF NOT EXISTS Tasks (
 id SERIAL PRIMARY KEY,
 title VARCHAR(20) NOT NULL,
-status statuses,
+status statuses NOT NULL DEFAULT 'NEW',
 created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );

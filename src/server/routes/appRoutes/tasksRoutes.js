@@ -7,7 +7,7 @@ const getTasksRouter = () => {
 
     //GET
     router.get('/', async (req, res) => {
-        const result = tasksController.getAll()
+        const result = await tasksController.getAll()
         res.status(result.status)
         if (req.headers.accept.includes('application/json')) {
             res.json(result.data)
@@ -32,7 +32,7 @@ const getTasksRouter = () => {
 
     //POST
     router.post('/', async (req, res) => {
-        const result = tasksController.create(req.body)
+        const result = await tasksController.create(req.body)
         res.status(result.status)
         if (req.headers.accept.includes('application/json')) {
             res.json(result.data)
@@ -44,8 +44,8 @@ const getTasksRouter = () => {
 
     router.post('/:id/done', async (req, res) => {
         const id = req.params.id
-        const result = tasksController.markDone(id)
-        res.status(result.status).json(result.data)
+        const result = await tasksController.markDone(id)
+        res.status(result.status)
         if (req.headers.accept.includes('application/json')) {
             res.json(result.data)
         } else if (req.headers.accept.includes('text/html')) {
