@@ -1,4 +1,12 @@
-CREATE TYPE statuses AS ENUM ('NEW','IN_PROGRESS','DONE');
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_type WHERE typname = 'statuses'
+  ) THEN
+    CREATE TYPE statuses AS ENUM ('NEW','IN_PROGRESS','DONE');
+  END IF;
+END
+$$;
 
 CREATE TABLE IF NOT EXISTS Tasks (
 id SERIAL PRIMARY KEY,
