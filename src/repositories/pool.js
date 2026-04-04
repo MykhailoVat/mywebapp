@@ -17,11 +17,11 @@ if (process.env.NODE_ENV === 'development') {
         path: path.resolve(__dirname, '../../.env_db')
     })
 
-    host = process.env.DATABASE_HOST
-    port = process.env.DATABASE_PORT
-    user = process.env.DATABASE_USER
-    password = process.env.DATABASE_PASSWORD
-    name = process.env.DATABASE_NAME
+    host = process.env.DB_HOST
+    port = process.env.DB_PORT
+    user = process.env.DB_USER
+    password = process.env.DB_PASSWORD
+    name = process.env.DB_NAME
 } else {
     const config = JSON.parse(
         fs.readFileSync('/etc/mywebapp/config.json', 'utf-8')
