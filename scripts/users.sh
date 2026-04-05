@@ -10,7 +10,6 @@ OPERATOR="operator"
 TEACHER="teacher"
 STUDENT="student"
 
-# Паролі
 OPERATOR_PASS="12345678"
 TEACHER_PASS="12345678"
 STUDENT_PASS="student123"
