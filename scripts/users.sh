@@ -5,7 +5,7 @@ OPERATOR_PASS="12345678"
 TEACHER_PASS="12345678"
 STUDENT_PASS="student123"
 
-DEFAULT_USER=$(awk -F: '$3 >= 1000 {print $1}' /etc/passwd)
+DEFAULT_USER=${SUDO_USER}
 
 useradd -r -s /usr/sbin/nologin app
 useradd -m -g operator -s /bin/bash operator
@@ -35,6 +35,6 @@ chown -R app:app "/opt/mywebapp"
 chmod -R 750 "/opt/mywebapp"
 
 sudo usermod -L $DEFAULT_USER
-loginctl terminate-user username
+loginctl terminate-user $DEFAULT_USER
 
 echo "USERS SCRIPT DONE"
