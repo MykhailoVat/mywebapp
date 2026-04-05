@@ -22,11 +22,11 @@ chage -d 0 teacher
 SUDO_FILE="/etc/sudoers.d/operator"
 
 bash -c "cat > $SUDO_FILE" <<EOF
-$OPERATOR ALL=(ALL) NOPASSWD: /bin/systemctl start mywebapp
-$OPERATOR ALL=(ALL) NOPASSWD: /bin/systemctl stop mywebapp
-$OPERATOR ALL=(ALL) NOPASSWD: /bin/systemctl status mywebapp
-$OPERATOR ALL=(ALL) NOPASSWD: /bin/systemctl restart mywebapp
-$OPERATOR ALL=(ALL) NOPASSWD: /bin/systemctl reload nginx
+operator ALL=(ALL) NOPASSWD: /bin/systemctl start mywebapp
+operator ALL=(ALL) NOPASSWD: /bin/systemctl stop mywebapp
+operator ALL=(ALL) NOPASSWD: /bin/systemctl status mywebapp
+operator ALL=(ALL) NOPASSWD: /bin/systemctl restart mywebapp
+operator ALL=(ALL) NOPASSWD: /bin/systemctl reload nginx
 EOF
 
 chmod 440 $SUDO_FILE
