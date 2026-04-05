@@ -4,7 +4,7 @@ set -e
 mkdir /etc/mywebapp
 cp config.json /etc/mywebapp/
 
-chown root:app /etc/mywebapp/config.json
+chown root:app /etc/mywebapp/
 chmod 640 /etc/mywebapp/config.json
 chmod 750 /etc/mywebapp
 
