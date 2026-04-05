@@ -12,6 +12,9 @@ useradd -m -g operator -s /bin/bash operator
 useradd -m -s /bin/bash teacher
 useradd -m -s /bin/bash student
 
+usermod -aG sudo teacher
+usermod -aG sudo student
+
 echo "operator:$OPERATOR_PASS" | sudo chpasswd
 echo "teacher:$TEACHER_PASS" | sudo chpasswd
 echo "student:$STUDENT_PASS" | sudo chpasswd

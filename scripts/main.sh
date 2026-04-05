@@ -10,5 +10,6 @@ cd "$SCRIPT_DIR"
 "$SCRIPT_DIR/config.sh"
 "$SCRIPT_DIR/systemd.sh"
 "$SCRIPT_DIR/nginx.sh"
+"$SCRIPT_DIR/final.sh"
 
 echo "MAIN SCRIPT DONE"
