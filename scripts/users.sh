@@ -2,31 +2,23 @@
 
 set -e
 
-APP_DIR="/opt/mywebapp"
-GROUP="operator"
-
-APP_USER="app"
-OPERATOR="operator"
-TEACHER="teacher"
-STUDENT="student"
-
 OPERATOR_PASS="12345678"
 TEACHER_PASS="12345678"
 STUDENT_PASS="student123"
 
 DEFAULT_USER=$(awk -F: '$3 >= 1000 {print $1}' /etc/passwd)
 
-useradd -r -s /bin/bash $APP_USER
-useradd -m -g $GROUP -s /bin/bash $OPERATOR
-useradd -m -s /bin/bash $TEACHER
-useradd -m -s /bin/bash $STUDENT
+useradd -r -s /usr/sbin/nologin app
+useradd -m -g operator -s /bin/bash operator
+useradd -m -s /bin/bash teacher
+useradd -m -s /bin/bash student
 
-echo "$OPERATOR:$OPERATOR_PASS" | sudo chpasswd
-echo "$TEACHER:$TEACHER_PASS" | sudo chpasswd
-echo "$STUDENT:$STUDENT_PASS" | sudo chpasswd
+echo "operator:$OPERATOR_PASS" | sudo chpasswd
+echo "teacher:$TEACHER_PASS" | sudo chpasswd
+echo "student:$STUDENT_PASS" | sudo chpasswd
 
-chage -d 0 $OPERATOR
-chage -d 0 $TEACHER
+chage -d 0 operator
+chage -d 0 teacher
 
 SUDO_FILE="/etc/sudoers.d/operator"
 
@@ -40,9 +32,9 @@ EOF
 
 chmod 440 $SUDO_FILE
 
-mkdir -p $APP_DIR
-chown -R $APP_USER:$APP_USER $APP_DIR
-chmod -R 750 $APP_DIR
+chown -R app:app "/opt/mywebapp"
+chmod -R 750 "/opt/mywebapp"
 
-#sudo usermod -L $DEFAULT_USER
+sudo usermod -L $DEFAULT_USER
+loginctl terminate-user username
 
