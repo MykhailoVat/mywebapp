@@ -7,7 +7,7 @@
   "type": "module",
   "main": "src/server/server.js",
   "scripts": {
-    "test": "NODE_ENV=development node src/server/server.js"
+    "dev-start": "NODE_ENV=development node src/server/server.js"
   },
   "dependencies": {
     "dotenv": "^17.3.1",

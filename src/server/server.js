@@ -24,7 +24,7 @@ if (process.env.LISTEN_FDS) {
         })
 
         port = parseInt(process.env.APP_PORT);
-        address = process.env.APP_ADDRESS;
+        address = process.env.APP_HOST;
     } else {
         const config = JSON.parse(
             fs.readFileSync('/etc/mywebapp/config.json', 'utf-8')
