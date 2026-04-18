@@ -4,6 +4,9 @@ WORKDIR /mywebapp
 
 RUN apk add --no-cache jq bash postgresql-client
 
+COPY package*.json ./
+RUN npm install
+
 COPY . .
 
 ENTRYPOINT ["/mywebapp/init_db/docker_migrate.sh"]

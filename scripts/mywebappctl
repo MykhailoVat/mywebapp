@@ -4,13 +4,13 @@ cd "/opt/mywebapp" || exit 1
 
 case "$1" in
   start)
-    docker-compose up -d
+    docker compose up -d
     ;;
   stop)
-    docker-compose down
+    docker compose down
     ;;
   restart)
-    docker-compose up -d
+    docker compose restart
     ;;
   status)
     docker-compose ps
