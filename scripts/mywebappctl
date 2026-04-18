@@ -13,13 +13,13 @@ case "$1" in
     docker compose restart
     ;;
   status)
-    docker-compose ps
+    docker compose ps
     ;;
   logs)
-    docker-compose logs -f
+    docker compose logs -f
     ;;
   reload-nginx)
-    docker-compose restart nginx
+    docker compose restart nginx
     ;;
   *)
     echo "Usage: $0 {start|stop|restart|status|logs|reload-nginx}"
