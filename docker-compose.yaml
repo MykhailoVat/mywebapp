@@ -17,6 +17,11 @@ services:
       - db
     volumes:
     - ./docker_configs/config.json:/etc/mywebapp/config.json
+    healthcheck:
+      test: [ "CMD", "wget", "-q", "-O", "-", "http://0.0.0.0:3000/health/alive" ]
+      interval: 5s
+      timeout: 2s
+      retries: 10
     networks:
       - app_net
 
@@ -27,7 +32,8 @@ services:
     volumes:
       - ./docker_configs/mywebapp.conf:/etc/nginx/conf.d/default.conf
     depends_on:
-      - app
+      app:
+        condition: service_healthy
     networks:
       - app_net
 
