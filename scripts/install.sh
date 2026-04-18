@@ -3,7 +3,7 @@ set -e
 
 apt update
 apt upgrade -y
-apt install -y nginx nodejs npm postgresql docker.io docker-compose-plugin
+apt install -y nginx nodejs npm postgresql docker.io docker-compose
 
 systemctl enable docker
 systemctl start docker
