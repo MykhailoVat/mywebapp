@@ -3,7 +3,10 @@ set -e
 
 apt update
 apt upgrade -y
-apt install -y nginx nodejs npm postgresql
+apt install -y nginx nodejs npm postgresql docker.io docker-compose-plugin
+
+systemctl enable docker
+systemctl start docker
 
 sudo -u postgres psql -c "CREATE DATABASE app;"
 sudo -u postgres psql -c "CREATE USER myuser WITH PASSWORD 'pass';"
