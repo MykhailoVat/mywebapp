@@ -4,22 +4,22 @@ cd "/opt/mywebapp" || exit 1
 
 case "$1" in
   start)
-    docker compose up -d
+    docker-compose up -d
     ;;
   stop)
-    docker compose down
+    docker-compose down
     ;;
   restart)
-    docker compose restart
+    docker-compose up -d
     ;;
   status)
-    docker compose ps
+    docker-compose ps
     ;;
   logs)
-    docker compose logs -f
+    docker-compose logs -f
     ;;
   reload-nginx)
-    docker compose restart nginx
+    docker-compose restart nginx
     ;;
   *)
     echo "Usage: $0 {start|stop|restart|status|logs|reload-nginx}"
