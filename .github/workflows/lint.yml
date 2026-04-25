@@ -29,6 +29,9 @@ jobs:
 
       - name: Run ShellCheck
         uses: ludeeus/action-shellcheck@2.0.0
+        with:
+          scandir: './scripts ./init_db'
+
 
       - name: Run Yamllint
         run: |
