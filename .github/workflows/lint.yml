@@ -35,9 +35,7 @@ jobs:
         run: npm install
 
       - name: Run eslint
-        run: npx eslint .
-        with:
-          ignore: node_modules
+        run: npx eslint ./src
 
 
 
