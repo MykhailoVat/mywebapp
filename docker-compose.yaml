@@ -1,4 +1,4 @@
-
+---
 services:
   db:
     image: postgres:16
@@ -18,7 +18,7 @@ services:
     volumes:
     - ./docker_configs/config.json:/etc/mywebapp/config.json
     healthcheck:
-      test: [ "CMD", "wget", "-q", "-O", "-", "http://0.0.0.0:3000/health/alive" ]
+      test: ["CMD", "wget", "-q", "-O", "-", "http://0.0.0.0:3000/health/alive"]
       interval: 5s
       timeout: 2s
       retries: 10
