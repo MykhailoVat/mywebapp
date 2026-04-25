@@ -16,7 +16,7 @@ services:
     depends_on:
       - db
     volumes:
-    - ./docker_configs/config.json:/etc/mywebapp/config.json
+      - ./docker_configs/config.json:/etc/mywebapp/config.json
     healthcheck:
       test: ["CMD", "wget", "-q", "-O", "-", "http://0.0.0.0:3000/health/alive"]
       interval: 5s
