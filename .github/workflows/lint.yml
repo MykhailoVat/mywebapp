@@ -13,6 +13,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@2.0.0
+        with:
+          scandir: './scripts ./init_db'
+
+      - name: Run Hadolint
+        uses: hadolint/hadolint-action@v3.3.0
+
+      - name: Run Yamllint
+        run: |
+          pip install yamllint
+          yamllint .
+
       - name: Install node
         uses: actions/setup-node@v6
         with:
@@ -24,18 +37,6 @@ jobs:
       - name: Run eslint
         run: npx eslint .
 
-      - name: Run Hadolint
-        uses: hadolint/hadolint-action@v3.3.0
 
-      - name: Run ShellCheck
-        uses: ludeeus/action-shellcheck@2.0.0
-        with:
-          scandir: './scripts ./init_db'
-
-
-      - name: Run Yamllint
-        run: |
-          pip install yamllint
-          yamllint .
 
 
