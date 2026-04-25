@@ -25,10 +25,10 @@ jobs:
         run: npx eslint .
 
       - name: Run Hadolint
-        uses: hadolint/hadolint-action@
+        uses: hadolint/hadolint-action@v3.3.0
 
       - name: Run ShellCheck
-        uses: ludeeus/action-shellcheck@
+        uses: ludeeus/action-shellcheck@2.0.0
 
       - name: Run Yamllint
         run: |
