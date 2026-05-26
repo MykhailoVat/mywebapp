@@ -2,7 +2,7 @@
 set -e
 
 mkdir /etc/mywebapp
-cp config.json /etc/mywebapp/
+cp configs/config.json /etc/mywebapp/
 
 chown -R root:app /etc/mywebapp/
 chmod 640 /etc/mywebapp/config.json

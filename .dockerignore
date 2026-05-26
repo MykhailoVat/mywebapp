@@ -4,6 +4,6 @@ Readme.md
 .env_db
 Dockerfile
 docker-compose.yaml
-scripts
+bare_setup
 .gitignore
 .git

@@ -2,8 +2,8 @@
 set -e
 
 mkdir /etc/systemd/system/mywebapp
-cp mywebapp.service /etc/systemd/system/
-cp mywebapp.socket /etc/systemd/system/
+cp configs/mywebapp.service /etc/systemd/system/
+cp configs/mywebapp.socket /etc/systemd/system/
 
 systemctl daemon-reload
 systemctl start mywebapp.socket

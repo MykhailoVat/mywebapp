@@ -153,7 +153,7 @@ cd /opt
 sudo git clone https://github.com/MykhailoVat/mywebapp.git
 
 # Запустіть скрипт інсталяції
-sudo ./mywebapp/scripts/main.sh
+sudo ./mywebapp/bare_setup/main.sh
 ```
 
 Після завершення скрипта сервер готовий до прийому запитів.
