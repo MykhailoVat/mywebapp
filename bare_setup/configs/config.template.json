@@ -1,0 +1,13 @@
+{
+"db":{
+"host": "${DB_HOST}",
+"port": "${DB_PORT}",
+"user": "${DB_USER}",
+"password": "${DB_PASSWD}",
+"name": "${DB_NAME}"
+},
+"app":{
+"host": "${APP_HOST_BARE}",
+"port": "${APP_PORT}"
+}
+}

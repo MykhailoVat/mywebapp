@@ -26,10 +26,10 @@ apt-get install -y docker-compose-plugin
 systemctl enable docker
 systemctl start docker
 
-sudo -u postgres psql -c "CREATE DATABASE app;"
-sudo -u postgres psql -c "CREATE USER myuser WITH PASSWORD 'pass';"
-sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE app TO myuser;"
-sudo -u postgres psql -d app -c "GRANT ALL ON SCHEMA public TO myuser;"
+sudo -u postgres psql -c "CREATE DATABASE $DB_NAME;"
+sudo -u postgres psql -c "CREATE USER myuser WITH PASSWORD $DB_PASSWD;"
+sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE app TO $DB_USER;"
+sudo -u postgres psql -d app -c "GRANT ALL ON SCHEMA public TO $DB_USER;"
 
 cd /opt/mywebapp
 #install as root, then give rights back to app

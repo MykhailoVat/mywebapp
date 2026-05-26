@@ -10,6 +10,10 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 cd "$SCRIPT_DIR"
 
+set -a
+source "$SCRIPT_DIR/../.env"
+set +a
+
 "$SCRIPT_DIR/users.sh"
 "$SCRIPT_DIR/install.sh"
 "$SCRIPT_DIR/config.sh"
