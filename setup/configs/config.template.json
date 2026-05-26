@@ -7,7 +7,7 @@
 "name": "${DB_NAME}"
 },
 "app":{
-"host": "${APP_HOST_BARE}",
+"host": "${APP_HOST}",
 "port": "${APP_PORT}"
 }
 }
