@@ -29,7 +29,7 @@ systemctl start docker
 sudo -u postgres psql -c "CREATE DATABASE $DB_NAME;"
 sudo -u postgres psql -c "CREATE USER $DB_USER WITH PASSWORD '$DB_PASSWD';"
 sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE $DB_NAME TO $DB_USER;"
-sudo -u postgres psql -d app -c "GRANT ALL ON SCHEMA public TO $DB_USER;"
+sudo -u postgres psql -d "$DB_NAME" -c "GRANT ALL ON SCHEMA public TO $DB_USER;"
 
 cd /opt/mywebapp
 #install as root, then give rights back to app
