@@ -28,54 +28,6 @@
 
 ---
 
-## 🚀 Швидкий старт (локально)
-
-### 1. Клонування репозиторію
-
-```bash
-git clone https://github.com/MykhailoVat/mywebapp.git
-cd mywebapp
-```
-
-### 2. Встановлення залежностей
-
-```bash
-npm install
-```
-
-### 3. Ініціалізація бази даних
-
-Створіть базу даних та виконайте міграцію:
-
-```bash
-bash /init_db/init.sh
-```
-
-### 4. Налаштування конфігурації
-
-Створіть два файли в кореневій директорії проекту:
-
-**`.env_app`** — налаштування застосунку:
-```env
-APP_PORT=<port>
-APP_HOST=<host>
-```
-
-**`.env_db`** — налаштування бази даних:
-```env
-DB_HOST=<host>
-DB_PORT=<port>
-DB_USER=<user>
-DB_PASSWORD=<password>
-DB_NAME=<name>
-```
-
-### 5. Запуск
-
-```bash
-npm run dev-start
-```
-
 ## 🔌 Ендпоінти
 
 > Ендпоінти `/tasks` підтримують як `application/json`, так і `text/html` — залежно від заголовку `Accept`.
@@ -153,7 +105,7 @@ cd /opt
 sudo git clone https://github.com/MykhailoVat/mywebapp.git
 
 # Запустіть скрипт інсталяції
-sudo ./mywebapp/bare_setup/main.sh
+sudo ./mywebapp/setup/main.sh
 ```
 
 Після завершення скрипта сервер готовий до прийому запитів.
@@ -191,25 +143,68 @@ curl -i -X POST http://192.168.122.59/tasks/1/done
 Після виконання скрипту розгортання можна також запускати всі сервіси за допомогою Docker Compose. <br>
 Для цього потрібно виконати наступні кроки:
 - Зупиніть nginx
-- Збудуйте Docker Compose сервіси
 - Керуйте збудованим образом від імені оператора
 ````bash
 #зупинка nginx
 sudo systemctl stop nginx
-
-#створення образу (виконати в корені проєкту)
-sudo docker compose build
 
 #управляти докером від імені оператора
 #наприклад:
 sudo mywebappctl start
 sudo mywebappctl stop
 sudo mywebappctl restart
-sudo mywebappctl ps #статус
 sudo mywebappctl logs #логи
 sudo mywebappctl reload-nginx
 ````
 Також у оператора є можливість запускати і зупиняти nginx через systemctl.<br>
 Тож оператор може самостійно перемикатись між контейнерною і неконтейнерною реалізацією.<br>
 Зовнішні ендпоінти доступні так само як в неконтейнерній реалізації.
+
+## 🚀 Для розробників (локальний запуск)
+
+### 1. Клонування репозиторію
+
+```bash
+git clone https://github.com/MykhailoVat/mywebapp.git
+cd mywebapp
+```
+
+### 2. Встановлення залежностей
+
+```bash
+npm install
+```
+
+### 3. Ініціалізація бази даних
+
+Створіть базу даних та виконайте міграцію:
+
+```bash
+bash /init_db/init.sh
+```
+
+### 4. Налаштування конфігурації
+
+Створіть два файли в кореневій директорії проекту:
+
+**`.env_app`** — налаштування застосунку:
+```env
+APP_PORT=<port>
+APP_HOST=<host>
+```
+
+**`.env_db`** — налаштування бази даних:
+```env
+DB_HOST=<host>
+DB_PORT=<port>
+DB_USER=<user>
+DB_PASSWORD=<password>
+DB_NAME=<name>
+```
+
+### 5. Запуск
+
+```bash
+npm run dev-start
+```
 
