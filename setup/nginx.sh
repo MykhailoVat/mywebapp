@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+export APP_HOST="$APP_HOST_BARE"
 envsubst < configs/mywebapp.template > configs/mywebapp
 
 cp configs/mywebapp /etc/nginx/sites-available/
