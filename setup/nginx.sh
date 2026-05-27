@@ -2,7 +2,7 @@
 set -e
 
 export APP_HOST="$APP_HOST_BARE"
-envsubst < configs/mywebapp.template > configs/mywebapp
+envsubst '${APP_HOST} ${APP_PORT}' < configs/mywebapp.template > configs/mywebapp
 
 cp configs/mywebapp /etc/nginx/sites-available/
 ln -sf /etc/nginx/sites-available/mywebapp /etc/nginx/sites-enabled/
