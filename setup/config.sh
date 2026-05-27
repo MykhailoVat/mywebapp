@@ -2,9 +2,11 @@
 set -e
 
 export APP_HOST="$APP_HOST_BARE"
+export DB_HOST="$DB_HOST_BARE"
 envsubst < configs/config.template.json > configs/config.json
 
 export APP_HOST="$APP_HOST_DOCKER"
+export DB_HOST="$DB_HOST_DOCKER"
 envsubst < configs/config.template.json > ../docker_configs/config.json
 
 

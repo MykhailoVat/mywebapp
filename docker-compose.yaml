@@ -18,7 +18,7 @@ services:
     volumes:
     - ./docker_configs/config.json:/etc/mywebapp/config.json
     healthcheck:
-      test: [ "CMD", "wget", "-q", "-O", "-", "http://${APP_HOST}:${APP_PORT}/health/alive" ]
+      test: [ "CMD", "wget", "-q", "-O", "-", "http://${APP_HOST_DOCKER}:${APP_PORT}/health/alive" ]
       interval: 5s
       timeout: 2s
       retries: 10
