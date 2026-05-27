@@ -2,7 +2,7 @@
 Description=My Web App socket
 
 [Socket]
-ListenStream=3000
+ListenStream=${APP_PORT}
 Accept=no
 
 [Install]
