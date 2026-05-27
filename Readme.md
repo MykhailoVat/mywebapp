@@ -104,6 +104,9 @@ cd /opt
 # Клонуйте репозиторій
 sudo git clone https://github.com/MykhailoVat/mywebapp.git
 
+#вкажіть секрети для бази даних (DB_USER,DB_PASSWD,DB_NAME)
+sudo nano .env
+
 # Запустіть скрипт інсталяції
 sudo ./mywebapp/setup/main.sh
 ```
@@ -120,16 +123,16 @@ sudo ./mywebapp/setup/main.sh
 
 ```bash
 # Отримати всі задачі
-curl -i http://192.168.122.59/tasks/
+curl -i http://<server_ip>/tasks/
 
 # Створити задачу
-curl -i -X POST http://192.168.122.16/tasks/ \
+curl -i -X POST http://<server_ip>/tasks/ \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
   -d '{"title": "Моя нова задача"}'
 
 # Позначити задачу як виконану
-curl -i -X POST http://192.168.122.59/tasks/1/done
+curl -i -X POST http://<server_ip>/tasks/1/done
 ```
 
 ### Рекомендації
@@ -159,6 +162,7 @@ sudo mywebappctl reload-nginx
 Також у оператора є можливість запускати і зупиняти nginx через systemctl.<br>
 Тож оператор може самостійно перемикатись між контейнерною і неконтейнерною реалізацією.<br>
 Зовнішні ендпоінти доступні так само як в неконтейнерній реалізації.
+> Увага: в даній версії застосунку бази даних для контейнерної й неконтейнерної реалізація - РІЗНІ. (Для спрощення виконання завдання)
 
 ## 🚀 Для розробників (локальний запуск)
 
